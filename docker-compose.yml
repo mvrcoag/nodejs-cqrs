@@ -1,0 +1,38 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongodb:27017/cqrs_read
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:7.0-jammy
+    container_name: cqrs-mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=cqrs_read
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - app-network
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
