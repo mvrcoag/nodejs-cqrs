@@ -2,6 +2,8 @@
 
 Un proyecto educativo completo para aprender **Command Query Responsibility Segregation (CQRS)** con Node.js, TypeScript, MongoDB y SQLite.
 
+[![APRENDE CQRS | Curso de CQRS con Node.js, Express, MongoDB y SQLite3](https://img.youtube.com/vi/_mih36ZDOaA/maxresdefault.jpg)](https://www.youtube.com/watch?v=_mih36ZDOaA)
+
 ## 📚 ¿Qué es CQRS?
 
 CQRS es un patrón arquitectónico que separa las operaciones de lectura (Queries) de las operaciones de escritura (Commands). Este proyecto implementa una arquitectura CQRS completa con:
